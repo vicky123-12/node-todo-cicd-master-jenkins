@@ -1,13 +1,5 @@
 pipeline {
     agent any
-     tools{
-        maven "M2_HOME"
-    }
-    environment {
-        DOCKERHUB_CREDENTIALS = credentials('vikramdochub')
-        dockerHubUser='vikram2804'
-        dockerHubPassword='vikram2804'
-    }
     stages{
         stage('Code'){
             steps{
@@ -21,8 +13,8 @@ pipeline {
         }
         stage('Push'){
             steps{
-                withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
-        	     sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+                withCredentials([usernamePassword(credentialsId: 'vikramdochub', passwordVariable: 'vikramdochubPassword', usernameVariable: 'vikramdochubUser')]) {
+        	     sh "docker login -u ${env.vikramdochubUser} -p ${env.vikramdochubPassword}"
                  sh 'docker push vikram2804/node-todo-test:latest'
                 }
             }
