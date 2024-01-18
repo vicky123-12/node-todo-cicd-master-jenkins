@@ -4,7 +4,7 @@ pipeline {
         maven "M2_HOME"
     }
     environment {
-        DOCKERHUB_CREDENTIALS = credentials('vikram2804')
+        DOCKERHUB_CREDENTIALS = credentials('vikramdochub')
         dockerHubUser='vikram2804'
         dockerHubPassword='vikram2804'
     }
