@@ -1,5 +1,8 @@
 pipeline {
     agent any
+     tools{
+        maven "M2_HOME"
+    }
     environment {
         DOCKERHUB_CREDENTIALS = credentials('vikram2804')
         dockerHubUser='vikram2804'
